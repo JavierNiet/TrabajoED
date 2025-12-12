@@ -181,6 +181,23 @@ public class Gato {
 		}
 	}
 
+	/**
+ * Intenta aparear a dos gatos.
+ * @param pareja El gato con el que se intenta aparear.
+ * @return Un nuevo Gato si tienen éxito, o null si no pueden.
+ */
+public Gato aparearse(Gato pareja) {
+    if (this.sexo != pareja.getSexo() && this.sexo != Sexo.HERMAFRODITA && pareja.getSexo() != Sexo.HERMAFRODITA) {
+        System.out.println("¡Han tenido un gatito!");
+        // La cría hereda la raza de la madre (asumiendo que 'this' es uno de los padres)
+        // y tiene un color mezcla o aleatorio.
+        return new Gato("Cría de " + this.nombre, "Mezcla", this.raza);
+    } else {
+        System.out.println("Lo siento, no pueden tener crías.");
+        return null;
+    }
+}
+
 	// Método toString
 	/*
 	 * Devuelve una cadena de caracteres con los datos del gato
